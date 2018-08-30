@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t pandadevs/docker_react_ci_aws -f Dockerfile.dev .
+
+script:
+  - docker run pandadevs/docker_react_ci_aws npm run test -- --coverage
